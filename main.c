@@ -39,12 +39,12 @@ main(int argc, char **argv) {
 #endif
 
 	/* set user privileges */
-	if (seteuid(pwd->pw_uid) != 0) {
+	if (seteuid(pwd->pw_uid)) {
 		printf("error: seteuid failed\n");
 		exit(EXIT_FAILURE);
 	}
 #ifdef DEBUG
-	if (setegid(pwd->pw_gid) != 0) {
+	if (setegid(pwd->pw_gid)) {
 		printf("error: setegid failed\n");
 		exit(EXIT_FAILURE);
 	}
